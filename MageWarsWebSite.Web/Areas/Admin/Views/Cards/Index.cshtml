@@ -1,0 +1,106 @@
+﻿@model List<Card>
+@{
+    ViewBag.Title = "Cards Main Page";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="@Url.Action("Index")">Home</a></li>
+                            <li><a href="@Url.Action("AddCard")"> @GlobalRes.AddCard </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                @if (TempData.ContainsKey("Success"))
+                {
+                    <div class="alert alert-success">@TempData["Success"]</div>
+                }
+                @if (TempData.ContainsKey("Error"))
+                {
+                    <div class="alert alert-warning">@TempData["Error"]</div>
+                }
+            </div>
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>File Name</th>
+                    <th>Amount</th>
+                    <th>Is And</th>
+                    <th>Is Basic</th>
+                    <th>Cost</th>
+                    <th>Reveal</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var card in Model)
+                {
+                    <tr>
+                        <td>@card.Id</td>
+                        <td>
+                            @Html.ActionLink(@card.Name, "Card", new { id = card.Id },
+                                new { title = GlobalRes.ViewCardPage, data_toggle = "tooltip", @class = "btn btn-link" })
+                            
+                        </td>
+                        <td>@card.FileName</td>
+                        <td>@card.Amount</td>
+                        <td>@card.IsAnd</td>
+                        <td>@card.IsBasic</td>
+                        <td>@(card.Cost.ToString() ?? "")</td>
+                        <td>@(card.Reveal.ToString() ?? "")</td>
+                        <td>
+                            @Html.ActionLink(GlobalRes.Edit, "EditCard", new {id = card.Id}, 
+                                new { title= GlobalRes.EditCard, data_toggle="tooltip", @class = "btn btn-link" })
+                            
+                            @Html.ActionLink(GlobalRes.Delete, "DeleteCard", new {id = card.Id}, 
+                                new { title= GlobalRes.DeleteCard, data_toggle="tooltip", @class = "btn btn-link" })
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="coll-md-6">
+            @Html.Action("CardsNavigation")
+        </div>
+    </div>
+
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            setTimeout(function() {
+                $('.alert').css('display', "none");
+            }, 1500);
+        });
+        
+    </script>
+}

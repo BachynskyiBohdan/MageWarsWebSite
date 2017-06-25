@@ -1,0 +1,74 @@
+﻿@model List<SubType>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active">@Html.ActionLink(GlobalRes.MainPage, "Index")</li>
+                            <li>@Html.ActionLink(GlobalRes.AddSubType, "AddSubType")</li>
+                            <li>@Html.ActionLink(GlobalRes.AddSubTypesByParse, "AddSubTypesByParse")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div clas="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="container">
+                @if (TempData.ContainsKey("Success"))
+                {
+                    <div class="alert alert-success">@TempData["Success"]</div>
+                }
+                @if (TempData.ContainsKey("Error"))
+                {
+                    <div class="alert alert-warning">@TempData["Error"]</div>
+                }
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var subType in Model)
+                {
+                    <tr>
+                        <td>@subType.Id</td>
+                        <td>@subType.Name</td>
+                        <td>
+                            <div class="pull-right">
+                                @Html.ActionLink(GlobalRes.Edit, "EditSubType", new {id = subType.Id},
+                                    new {@class = "btn btn-link", title = GlobalRes.EditSubType, data_toggle = "tooltip"})
+                                @Html.ActionLink(GlobalRes.Delete, "DeleteSubType", new {id = subType.Id},
+                                    new {@class = "btn btn-link", title = GlobalRes.DeleteSubType, data_toggle = "tooltip"})
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

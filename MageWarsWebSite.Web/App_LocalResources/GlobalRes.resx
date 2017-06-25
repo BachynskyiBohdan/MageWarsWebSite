@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddNewCard" xml:space="preserve">
+    <value>Add new card: </value>
+  </data>
+  <data name="FileNameAlreadyExistModelError" xml:space="preserve">
+    <value>FileName is already exist! Please, specify another.</value>
+  </data>
+  <data name="ImageRequiredModelError" xml:space="preserve">
+    <value>You must pick an image!</value>
+  </data>
+  <data name="PleaseChooseImage" xml:space="preserve">
+    <value>Please, choose image:</value>
+  </data>
+  <data name="SchoolRequiredModelError" xml:space="preserve">
+    <value>You must choose at least one school!</value>
+  </data>
+  <data name="SubmitCard" xml:space="preserve">
+    <value>Submit Card</value>
+  </data>
+  <data name="SubTypeRequiredModelError" xml:space="preserve">
+    <value>You must choose at least one subtype!</value>
+  </data>
+  <data name="TypeRequiredModelError" xml:space="preserve">
+    <value>You must choose at least one type!</value>
+  </data>
+  <data name="CardBadIdErrorFormat" xml:space="preserve">
+    <value>Error. card with such id - {0} was not found!</value>
+  </data>
+  <data name="Begin" xml:space="preserve">
+    <value>First page</value>
+  </data>
+  <data name="CurrentPage" xml:space="preserve">
+    <value>Current Page</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Last Page</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="PrevPage" xml:space="preserve">
+    <value>Previous page</value>
+  </data>
+  <data name="CardChangedIdError" xml:space="preserve">
+    <value>Error occurred because someone changed Id when editing Card</value>
+  </data>
+  <data name="CardUpdateErrorFormat" xml:space="preserve">
+    <value>Error occurred when updating the card with id {0}</value>
+  </data>
+  <data name="CardUpdateSuccessFormat" xml:space="preserve">
+    <value>Card with id {0} was successfully updated</value>
+  </data>
+  <data name="CardAddError" xml:space="preserve">
+    <value>Error occurred when adding the new card </value>
+  </data>
+  <data name="CardAddSuccessFormat" xml:space="preserve">
+    <value>Card with id {0} was successfully added</value>
+  </data>
+  <data name="CardDeleteErrorFormat" xml:space="preserve">
+    <value>Error occurred when deleting the card with id {0}</value>
+  </data>
+  <data name="CardDeleteSuccessFormat" xml:space="preserve">
+    <value>Card with id {0} was successfully deleted</value>
+  </data>
+  <data name="CardNotFoundErrorFormat" xml:space="preserve">
+    <value>Card with id {0} have not found</value>
+  </data>
+  <data name="AddCard" xml:space="preserve">
+    <value>Add Card</value>
+  </data>
+  <data name="AddCardType" xml:space="preserve">
+    <value>Add Card Type</value>
+  </data>
+  <data name="BackToCards" xml:space="preserve">
+    <value>Back to cards page</value>
+  </data>
+  <data name="CardTypeAddError" xml:space="preserve">
+    <value>Error occurred when adding the new card type</value>
+  </data>
+  <data name="CardTypeAddSuccessFormat" xml:space="preserve">
+    <value>Card type with id {0} was successfully added</value>
+  </data>
+  <data name="CardTypeNotFoundErrorFormat" xml:space="preserve">
+    <value>Card type with id {0} have not found</value>
+  </data>
+  <data name="CardTypesAddError" xml:space="preserve">
+    <value>Error occurred when adding some of the new card types</value>
+  </data>
+  <data name="CardTypesAddSuccess" xml:space="preserve">
+    <value>All parsed card types was successfully added</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteCard" xml:space="preserve">
+    <value>Delete Card</value>
+  </data>
+  <data name="DeleteCardType" xml:space="preserve">
+    <value>Delete Card Type</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditCard" xml:space="preserve">
+    <value>Edit Card</value>
+  </data>
+  <data name="EditCardType" xml:space="preserve">
+    <value>Edit Card Type</value>
+  </data>
+  <data name="SelectedCard" xml:space="preserve">
+    <value>Selected Card</value>
+  </data>
+  <data name="ViewCardPage" xml:space="preserve">
+    <value>View Card Page</value>
+  </data>
+  <data name="AddCardTypesByParse" xml:space="preserve">
+    <value>Add card types by parse</value>
+  </data>
+  <data name="AddNewCardType" xml:space="preserve">
+    <value>Add new card type</value>
+  </data>
+  <data name="AddNewCardTypesByParse" xml:space="preserve">
+    <value>Add new card type by parse</value>
+  </data>
+  <data name="AddNewSchool" xml:space="preserve">
+    <value>Add new school</value>
+  </data>
+  <data name="AddNewSchoolsByParse" xml:space="preserve">
+    <value>Add new schools by parse</value>
+  </data>
+  <data name="AddNewSubType" xml:space="preserve">
+    <value>Add new sub type</value>
+  </data>
+  <data name="AddNewSubTypesByParse" xml:space="preserve">
+    <value>Add new sub types by parse</value>
+  </data>
+  <data name="AddSchool" xml:space="preserve">
+    <value>Add school</value>
+  </data>
+  <data name="AddSchoolsByParse" xml:space="preserve">
+    <value>Add schools by parse</value>
+  </data>
+  <data name="AddSubType" xml:space="preserve">
+    <value>Add sub type</value>
+  </data>
+  <data name="AddSubTypesByParse" xml:space="preserve">
+    <value>Add sub types by parse</value>
+  </data>
+  <data name="BackToCardTypes" xml:space="preserve">
+    <value>Back to card types page</value>
+  </data>
+  <data name="CardTypeDeleteErrorFormat" xml:space="preserve">
+    <value>Error occurred when deleting the card type with id {0}</value>
+  </data>
+  <data name="CardTypeDeleteSuccessFormat" xml:space="preserve">
+    <value>Card type with id {0} was successfully deleted</value>
+  </data>
+  <data name="CardTypes" xml:space="preserve">
+    <value>Card types</value>
+  </data>
+  <data name="CardTypeUpdateErrorFormat" xml:space="preserve">
+    <value>Error occurred when updating the card type with id {0}</value>
+  </data>
+  <data name="CardTypeUpdateSuccessFormat" xml:space="preserve">
+    <value>Card type with id {0} was successfully updated</value>
+  </data>
+  <data name="DeleteSchool" xml:space="preserve">
+    <value>Delete scool</value>
+  </data>
+  <data name="DeleteSubType" xml:space="preserve">
+    <value>Delete sub type</value>
+  </data>
+  <data name="EditSchool" xml:space="preserve">
+    <value>Edit school</value>
+  </data>
+  <data name="EditSubType" xml:space="preserve">
+    <value>Edit sub type</value>
+  </data>
+  <data name="MageNameAlreadyExistModelError" xml:space="preserve">
+    <value>Mage name is already exist! Please, specify another.</value>
+  </data>
+  <data name="MainPage" xml:space="preserve">
+    <value>Main Page</value>
+  </data>
+  <data name="SchoolAddError" xml:space="preserve">
+    <value>Error occurred when adding the new school</value>
+  </data>
+  <data name="SchoolAddSuccessFormat" xml:space="preserve">
+    <value>School with id {0} was successfully added</value>
+  </data>
+  <data name="SchoolDeleteErrorFormat" xml:space="preserve">
+    <value>Error occurred when deleting the school with id {0}</value>
+  </data>
+  <data name="SchoolDeleteSuccessFormat" xml:space="preserve">
+    <value>School with id {0} was successfully deleted</value>
+  </data>
+  <data name="SchoolNotFoundErrorFormat" xml:space="preserve">
+    <value>School with id {0} have not found</value>
+  </data>
+  <data name="Schools" xml:space="preserve">
+    <value>Schools</value>
+  </data>
+  <data name="SchoolsAddError" xml:space="preserve">
+    <value>Error occurred when adding some of the new schools</value>
+  </data>
+  <data name="SchoolsAddSuccess" xml:space="preserve">
+    <value>All parsed schools was successfully added</value>
+  </data>
+  <data name="SchoolUpdateErrorFormat" xml:space="preserve">
+    <value>Error occurred when updating the school with id {0}</value>
+  </data>
+  <data name="SchoolUpdateSuccessFormat" xml:space="preserve">
+    <value>School with id {0} was successfully updated</value>
+  </data>
+  <data name="SubmitCardType" xml:space="preserve">
+    <value>Submit card type</value>
+  </data>
+  <data name="SubmitSchool" xml:space="preserve">
+    <value>Submit school</value>
+  </data>
+  <data name="SubmitSubType" xml:space="preserve">
+    <value>Submit sub type</value>
+  </data>
+  <data name="SubTypeAddError" xml:space="preserve">
+    <value>Error occurred when adding the new sub type</value>
+  </data>
+  <data name="SubTypeAddSuccessFormat" xml:space="preserve">
+    <value>Sub type with id {0} was successfully added</value>
+  </data>
+  <data name="SubTypeDeleteErrorFormat" xml:space="preserve">
+    <value>Error occurred when deleting the sub type with id {0}</value>
+  </data>
+  <data name="SubTypeDeleteSuccessFormat" xml:space="preserve">
+    <value>Sub type with id {0} was successfully deleted</value>
+  </data>
+  <data name="SubTypeNotFoundErrorFormat" xml:space="preserve">
+    <value>Sub type with id {0} have not found</value>
+  </data>
+  <data name="SubTypes" xml:space="preserve">
+    <value>Sub types</value>
+  </data>
+  <data name="SubTypesAddError" xml:space="preserve">
+    <value>Error occurred when adding some of the new sub types</value>
+  </data>
+  <data name="SubTypesAddSuccess" xml:space="preserve">
+    <value>All parsed sub types was successfully added</value>
+  </data>
+  <data name="SubTypeUpdateErrorFormat" xml:space="preserve">
+    <value>Error occurred when updating the sub type with id {0}</value>
+  </data>
+  <data name="SubTypeUpdateSuccessFormat" xml:space="preserve">
+    <value>Sub type with id {0} was successfully updated</value>
+  </data>
+  <data name="AddMage" xml:space="preserve">
+    <value>Add Mage</value>
+  </data>
+  <data name="AddNewMage" xml:space="preserve">
+    <value>Add new mage:</value>
+  </data>
+  <data name="BackToMages" xml:space="preserve">
+    <value>Back to mages page</value>
+  </data>
+  <data name="CardImage" xml:space="preserve">
+    <value>Card image:</value>
+  </data>
+  <data name="Cards" xml:space="preserve">
+    <value>Cards</value>
+  </data>
+  <data name="DeleteMage" xml:space="preserve">
+    <value>Delete Mage</value>
+  </data>
+  <data name="EditMage" xml:space="preserve">
+    <value>Edit Mage</value>
+  </data>
+  <data name="MageAddError" xml:space="preserve">
+    <value>Error occurred when adding the new mage</value>
+  </data>
+  <data name="MageAddSuccessFormat" xml:space="preserve">
+    <value>Mage with id {0} was successfully added</value>
+  </data>
+  <data name="MageChangedIdError" xml:space="preserve">
+    <value>Error occurred because someone changed Id when editing Mage</value>
+  </data>
+  <data name="MageDeleteErrorFormat" xml:space="preserve">
+    <value>Error occurred when deleting the mage with id {0}</value>
+  </data>
+  <data name="MageDeleteSuccessFormat" xml:space="preserve">
+    <value>Mage with id {0} was successfully deleted</value>
+  </data>
+  <data name="MageDescriptionImage" xml:space="preserve">
+    <value>Mage description image:</value>
+  </data>
+  <data name="MageImage" xml:space="preserve">
+    <value>Mage image:</value>
+  </data>
+  <data name="MageNotFoundErrorFormat" xml:space="preserve">
+    <value>Mage with id {0} have not found</value>
+  </data>
+  <data name="Mages" xml:space="preserve">
+    <value>Mages</value>
+  </data>
+  <data name="MageUpdateErrorFormat" xml:space="preserve">
+    <value>Error occurred when updating the mage with id {0}</value>
+  </data>
+  <data name="MageUpdateSuccessFormat" xml:space="preserve">
+    <value>Mage with id {0} was successfully updated</value>
+  </data>
+  <data name="PleaseChooseDescriptionImage" xml:space="preserve">
+    <value>Please, choose image for mage description:</value>
+  </data>
+  <data name="PleaseChooseHeroImage" xml:space="preserve">
+    <value>Please, choose image for mage:</value>
+  </data>
+  <data name="SchoolLevelTooltip" xml:space="preserve">
+    <value>If level not specifying, level unlimited</value>
+  </data>
+  <data name="SelectedMage" xml:space="preserve">
+    <value>Selected Mage</value>
+  </data>
+  <data name="SubmitChanges" xml:space="preserve">
+    <value>Submit changes</value>
+  </data>
+  <data name="SubmitMage" xml:space="preserve">
+    <value>Submit mage</value>
+  </data>
+  <data name="Types" xml:space="preserve">
+    <value>Types</value>
+  </data>
+  <data name="ViewMagePage" xml:space="preserve">
+    <value>View Mage Page</value>
+  </data>
+</root>

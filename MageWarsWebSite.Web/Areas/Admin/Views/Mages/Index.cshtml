@@ -1,0 +1,99 @@
+﻿@model List<Mage>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="@Url.Action("Index")">Home</a></li>
+                            <li><a href="@Url.Action("AddMage")"> @GlobalRes.AddMage </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Heal Points</th>
+                    <th>Mana Points</th>
+                    <th>Primary School Id</th>
+                    <th title="@GlobalRes.SchoolLevelTooltip" data-toggle="tooltip">School Level</th>
+                    <th>Secondary School Id</th>
+                    <th title="@GlobalRes.SchoolLevelTooltip" data-toggle="tooltip">School Level</th>
+                    <th>Description File Name</th>
+                    <th>Hero File Name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var mage in Model)
+                    {
+                        <tr>
+                            <td>@mage.Id</td>
+                            <td>
+                                @Html.ActionLink(mage.Name, "Mage", new {id = mage.Id},
+                                    new {@class = "btn btn-link", title = GlobalRes.ViewMagePage, data_toggle = "tooltip"})
+                            </td>
+                            <td>@mage.HealPoints</td>
+                            <td>@mage.ManaPoints</td>
+                            
+                            <td>@mage.PrimarySchoolId</td>
+                            <td>@mage.PrimarySchoolLevel</td>
+                            <td>@mage.SecondarySchoolId</td>
+                            <td>@mage.SecondarySchoolLevel</td>
+                            
+                            <td>@mage.DescriptionFileName</td>
+                            <td>@mage.HeroFileName</td>
+                            <th>
+                                @Html.ActionLink(GlobalRes.Edit, "EditMage", new { id = mage.Id },
+                                    new {@class = "btn btn-link", title = GlobalRes.EditMage, data_toggle = "tooltip" })
+                                @Html.ActionLink(GlobalRes.Delete, "DeleteMage", new { id = mage.Id },
+                                    new {@class = "btn btn-link", title = GlobalRes.DeleteMage, data_toggle = "tooltip" })
+                            </th>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            @Html.Action("MagesNavigation")
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            setTimeout(function() {
+                $('.alert').css('display', "none");
+            }, 1500);
+        });
+
+    </script>
+}

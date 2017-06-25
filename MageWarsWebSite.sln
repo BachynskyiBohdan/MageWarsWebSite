@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MageWarsWebSite.Domain", "MageWarsWebSite.Domain\MageWarsWebSite.Domain.csproj", "{BE204E70-7E9E-4921-BE94-C9B1F74E4082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MageWarsWebSite.Web", "MageWarsWebSite.Web\MageWarsWebSite.Web.csproj", "{BC91C26A-4939-483F-A3C9-3FED248C0609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MageWarsWebSite.Tests", "MageWarsWebSite.Web.Tests\MageWarsWebSite.Tests.csproj", "{9981F1E7-3E14-4C32-B818-FADB9A74682D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C329F070-4C4E-4E71-8300-6F88D620E1F5}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE204E70-7E9E-4921-BE94-C9B1F74E4082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE204E70-7E9E-4921-BE94-C9B1F74E4082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE204E70-7E9E-4921-BE94-C9B1F74E4082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE204E70-7E9E-4921-BE94-C9B1F74E4082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC91C26A-4939-483F-A3C9-3FED248C0609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC91C26A-4939-483F-A3C9-3FED248C0609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC91C26A-4939-483F-A3C9-3FED248C0609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC91C26A-4939-483F-A3C9-3FED248C0609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9981F1E7-3E14-4C32-B818-FADB9A74682D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9981F1E7-3E14-4C32-B818-FADB9A74682D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9981F1E7-3E14-4C32-B818-FADB9A74682D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9981F1E7-3E14-4C32-B818-FADB9A74682D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

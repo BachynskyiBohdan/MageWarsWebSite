@@ -1,0 +1,145 @@
+﻿@model MageViewModel
+@{
+    ViewBag.Title = GlobalRes.EditMage;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                @Html.ActionLink(GlobalRes.BackToMages, "Index", null,
+                                    new { @class = "btn btn-link" })
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.ViewMagePage, "Mage", new { id = Model.Mage.Id },
+                                    new { @class = "btn btn-link" })
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.AddMage, "AddMage", null,
+                                    new { @class = "btn btn-link" })
+                            </li>
+                            <li class="active">
+                                @Html.ActionLink(GlobalRes.EditMage, "EditMage", new { id = Model.Mage.Id },
+                                    new { @class = "btn btn-link" })
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.DeleteMage, "DeleteMage", new { id = Model.Mage.Id },
+                                    new { @class = "btn btn-link" })
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+            <h1 class="text-center">@GlobalRes.EditMage:</h1>
+            <br />
+            <div class="form-container">
+                @using (Html.BeginForm("EditMage", "Mages", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    @Html.HiddenFor(x => x.Mage.Id)
+                    @Html.HiddenFor(x => x.Schools)
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.Name)
+                        @Html.TextBoxFor(x => x.Mage.Name, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.HealPoints)
+                        @Html.TextBoxFor(x => x.Mage.HealPoints, new { @class = "form-control", type = "numeric" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.ManaPoints)
+                        @Html.TextBoxFor(x => x.Mage.ManaPoints, new { @class = "form-control", type = "numeric" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.PrimarySchool)
+                        @Html.ListBoxFor(x => x.PrimarySchool, Model.Schools, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.PrimarySchoolLevel)
+                        @Html.TextBoxFor(x => x.Mage.PrimarySchoolLevel, new { @class = "form-control", type = "numeric" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.SecondarySchool)
+                        @Html.ListBoxFor(x => x.SecondarySchool, Model.Schools, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.SecondarySchoolLevel)
+                        @Html.TextBoxFor(x => x.Mage.SecondarySchoolLevel, new { @class = "form-control", type = "numeric" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.DescriptionFileName)
+                        @Html.TextBoxFor(x => x.Mage.DescriptionFileName, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Mage.HeroFileName)
+                        @Html.TextBoxFor(x => x.Mage.HeroFileName, new { @class = "form-control", type = "number" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mageImage">@GlobalRes.PleaseChooseHeroImage</label>
+                        <input type="file" id="mageImage" name="descriptionImage" onchange="Preview(this, '#mageImagePreview')" />
+                        <img src="/Content/Mages/@Model.Mage.HeroFileName.@Model.Mage.HeroFileType" 
+                             id="mageImagePreview" class="image-preview" alt="preview" />
+                    </div>
+                    <div class="form-group">
+                        <label for="descriptionImage">@GlobalRes.PleaseChooseDescriptionImage</label>
+                        <input type="file" id="descriptionImage" name="descriptionImage" onchange="Preview(this, '#imagePreview')" />
+                        <img src="/Content/Mages/@Model.Mage.DescriptionFileName.@Model.Mage.DescriptionFileType" 
+                             id="imagePreview" class="image-preview" alt="preview" />
+                    </div>
+
+
+                    <div class="form-group text-center">
+                        <input type="submit" class="btn btn-info text-center" value="@GlobalRes.SubmitChanges">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        function Preview(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                $(id).css("display", "block");
+                reader.onload = function (e) {
+                    $(id).attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+}
+
+
+
+

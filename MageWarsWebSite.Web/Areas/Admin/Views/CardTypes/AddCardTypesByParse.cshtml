@@ -1,0 +1,64 @@
+﻿@model string
+@{
+    ViewBag.Title = GlobalRes.AddCardTypesByParse;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                @Html.ActionLink(GlobalRes.BackToCardTypes, "Index", null,
+                                    new { @class = "btn btn-link" })
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.AddCardType, "AddCardType", null,
+                                    new { @class = "btn btn-link" })
+                            </li>
+                            <li class="active">
+                                @Html.ActionLink(GlobalRes.AddCardTypesByParse, "AddCardTypesByParse", null,
+                                    new { @class = "btn btn-link" })
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1 class="text-center">@GlobalRes.AddNewCardTypesByParse:</h1>
+            <br />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+
+                <div class="form-group text-center">
+                    <label>
+                        @GlobalRes.CardTypes:
+                        @Html.TextArea("model", new { @class = "form-control" })
+                    </label>
+                </div>
+                <div class="form-group text-center">
+                    <input type="submit" class="btn btn-info" value="@GlobalRes.SubmitCardType" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

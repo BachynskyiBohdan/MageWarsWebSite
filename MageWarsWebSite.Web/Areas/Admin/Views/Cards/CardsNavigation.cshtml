@@ -1,0 +1,92 @@
+﻿@model int
+
+@{
+    var page = Convert.ToInt32(Context.Request.QueryString["page"] ?? "1");
+    var perPage = Convert.ToInt32(Context.Request.QueryString["count"] ?? "50");
+    var count = (int)Math.Ceiling((double)Model / perPage);
+    var shift = (page == 1 || page == count) ? 5 : 3;
+}
+
+<ul class="pagination">
+   
+    @* previous page button *@
+    @if (page == 1)
+    {
+        <li class="disabled">
+            <a href="#" title="@GlobalRes.PrevPage" data-toggle="tooltip">
+                <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+        </li>
+    }
+    else
+    {
+        // first page (goto begin)
+        <li> @Html.ActionLink(GlobalRes.Begin, "Index", new { page = 1, count = perPage }, 
+            new {title = GlobalRes.Begin, data_toggle = "tooltip" }) </li>
+
+        <li>
+            <a href="@Url.Action("Index", new {page = (page - 1), count = perPage})" 
+               title = GlobalRes.Begin, dataToggle = "tooltip">
+                <span class="glyphicon glyphicon-envelope glyphicon-menu-left"></span>
+            </a>
+        </li>
+        
+        // first page
+        <li> @Html.ActionLink("1", "Index", new { page = 1, count = perPage }) </li>
+    }
+
+    @{
+        //left shift
+        var preCnt = (page - shift) > 1 ? (page - shift) : 1;
+        if (preCnt > 1)
+        {
+            <li> <span>...</span> </li>
+        }
+        for (var i = preCnt + 1; i < page; i++)
+        {
+            <li> @Html.ActionLink(i.ToString(), "Index", new {page = i, count = perPage}) </li>
+        }
+
+        // current page
+        <li class="active">
+             @Html.ActionLink(page.ToString(), "Index", new {page, count = perPage},
+                      new {title = GlobalRes.CurrentPage, data_toggle = "tooltip"})
+        </li>
+
+        //right shift
+        var nextCnt = (page + shift) < count ? (page + shift) : count;
+        for (var i = page + 1; i < page && i < nextCnt; i++)
+        {
+            <li> @Html.ActionLink(i.ToString(), "Index", new {page = i, count = perPage}) </li>
+        }
+        if (nextCnt < count)
+        {
+            <li> <span>...</span> </li>
+        }
+    }
+
+    @* next page button *@
+    @if (page == count || count == 0)
+    {
+        <li class="disabled">
+            <a href="#" title="@GlobalRes.NextPage" data-toggle="tooltip">
+                <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li>  @Html.ActionLink(count.ToString(), "Index", new { page = count, count = perPage })</li>
+
+        <li> <a href="@Url.Action("Index", new {page = (page + 1), count = perPage})" 
+                title="@GlobalRes.NextPage" data-toggle="tooltip">
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+        </li>
+
+        @* last page *@
+        <li>@Html.ActionLink(GlobalRes.End, "Index", new { page = count, count = perPage },
+                new {title = GlobalRes.End, data_toggle = "tooltip" })</li>
+    }
+
+</ul>

@@ -1,0 +1,157 @@
+﻿@model Card
+@{
+    ViewBag.Title = GlobalRes.SelectedCard + ": " + Model.Name;
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                @Html.ActionLink(GlobalRes.BackToCards, "Index", null, 
+                                    new {@class = "btn btn-link"})
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.AddCard, "AddCard", null, 
+                                    new {@class = "btn btn-link"})
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.EditCard, "EditCard", new {id = Model.Id},
+                                    new {@class = "btn btn-link"})
+                            </li>
+                            <li>
+                                @Html.ActionLink(GlobalRes.DeleteCard, "DeleteCard", new {id = Model.Id},
+                                    new {@class = "btn btn-link"})
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1 class="text-center">@GlobalRes.SelectedCard: @Model.Name</h1>
+            <br/>
+            <div class="form-container">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Id)
+                    <span>@Model.Id</span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.FileName)
+                    <span>@Model.FileName</span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Amount)
+                    <span>@Model.Amount</span>
+                </div>
+
+                <div class="form-group">
+                    <table class="table table-responsive">
+                        <tbody>
+                        <tr>
+                            <td>@Html.LabelFor(x => x.IsAnd)</td>
+                            <td>
+                                @if (Model.IsAnd)
+                                {
+                                    <span class="glyphicon glyphicon-check"></span>
+                                }
+                                else
+                                {
+                                    <span class="glyphicon glyphicon-unchecked"></span>
+                                }
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(x => x.IsBasic)</td>
+
+                            <td>
+                                @if (Model.IsBasic)
+                                {
+                                    <span class="glyphicon glyphicon-check"></span>
+                                }
+                                else
+                                {
+                                    <span class="glyphicon glyphicon-unchecked"></span>
+                                }
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Cost)
+                    <span>@Model.Cost</span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Reveal)
+                    <span>@Model.Reveal</span>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.CardTypes)
+                    <ul class="list-group">
+                        @foreach (var item in Model.CardTypes)
+                        {
+                            <li class="list-group-item">@item.Name</li>
+                        }
+                    </ul>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.SubTypes)
+                    <ul class="list-group">
+                        @foreach (var item in Model.SubTypes)
+                        {
+                            <li class="list-group-item">@item.Name</li>
+                        }
+                    </ul>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Schools)
+                    <ul class="list-group">
+                        @foreach (var item in Model.Schools)
+                        {
+                            <li class="list-group-item">@item.Name</li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagePreview">@GlobalRes.CardImage</label>
+                    <img id="imagePreview" class="image-preview" alt="Card preview" style="display: block"
+                         src="/Content/Cards/@Model.FileName.@Model.FileType"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            setTimeout(function() {
+                $('.alert').css('display', "none");
+            }, 1500);
+        });
+
+    </script>
+}

@@ -1,0 +1,74 @@
+﻿@model List<School>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @* Navigation header *@
+            <div class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active">@Html.ActionLink(GlobalRes.MainPage, "Index")</li>
+                            <li>@Html.ActionLink(GlobalRes.AddSchool, "AddSchool")</li>
+                            <li>@Html.ActionLink(GlobalRes.AddSchoolsByParse, "AddSchoolsByParse")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div clas="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="container">
+                @if (TempData.ContainsKey("Success"))
+                {
+                    <div class="alert alert-success">@TempData["Success"]</div>
+                }
+                @if (TempData.ContainsKey("Error"))
+                {
+                    <div class="alert alert-warning">@TempData["Error"]</div>
+                }
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var school in Model)
+                {
+                    <tr>
+                        <td>@school.Id</td>
+                        <td>@school.Name</td>
+                        <td>
+                            <div class="pull-right">
+                                @Html.ActionLink(GlobalRes.Edit, "EditSchool", new {id = school.Id},
+                                    new {@class = "btn btn-link", title = GlobalRes.EditSchool, data_toggle = "tooltip"})
+                                @Html.ActionLink(GlobalRes.Delete, "DeleteSchool", new {id = school.Id},
+                                    new {@class = "btn btn-link", title = GlobalRes.DeleteSchool, data_toggle = "tooltip"})
+                            </div>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
